@@ -12,12 +12,8 @@ jobs:
           TITLE: ${{ github.event.issue.title }}
         run: |
           echo "Issue title is ${{ env.TITLE }}"
-          echo "Repository: ${{ github.repository }}"
-          echo "Branch: ${{ github.ref }}"
-          echo "Commit SHA: ${{ github.sha }}"
-          echo "Event name: ${{ github.event_name }}"
           issue_title="${{ github.event.issue.title }}"
-          if [[ "$issue_title" == *"bug"* ]]; then
+          if [[ "$TITLE" == *"bug"* ]]; then
           echo "Issue is about a bug!"
           else
           echo "Issue is not about a bug"
