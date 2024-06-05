@@ -11,7 +11,7 @@ jobs:
         env:
           TITLE: ${{ github.event.issue.title }}
         run: |
-          echo "Issue title is ${{ $TITLE }}"
+          echo "Issue title is ${{ env.TITLE }}"
           echo "Repository: ${{ github.repository }}"
           echo "Branch: ${{ github.ref }}"
           echo "Commit SHA: ${{ github.sha }}"
