@@ -20,7 +20,9 @@ jobs:
       #     --fail
       - name: Add label
         if: contains(github.event.issue.title, 'bug')
-        run: gh issue edit "$NUMBER" --add-label "$LABELS"
+        run: |
+          gh issue edit "$NUMBER" --add-label "$LABELS"
+          echo "Added bug label for issue ${{ github.event.issue.title }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
